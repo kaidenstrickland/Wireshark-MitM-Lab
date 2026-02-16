@@ -1,22 +1,25 @@
-<h1>JWipe - Disk Sanitization</h1>
+<h1>Traffic Analysis Using Wireshark</h1>
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
-
-<h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+<h2>Objective</h2>
+The objective of this project was to conduct a deep-packet analysis of unencrypted network traffic to demonstrate the vulnerability of plaintext protocols. By capturing and reconstructing sensitive login credentials transmitted using HTTP, this lab serves as a proof-of-concept for the risks of data interception and highlights the need for end-to-end encryption using HTTPS.
 <br />
 
+<h2>Project Summary</h2>
+This project demonstrates a successful Man-in-the-Middle (MitM) analysis within a controlled virtual environment. By intercepting traffic between a victim workstation and a web server, I successfully identified critical vulnerabilities in unencrypted protocols, including the exposure of plaintext credentials and session data.
+<br />
 
 <h2>Languages and Utilities Used</h2>
 
 - <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b>Wireshark</b>
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Ubuntu(Linux)</b>
+- <b>VirtualBox</b>
+- <b>Windows 11 Host</b>
 
-<h2>Program walk-through:</h2>
+<h2>Project Report:</h2>
 
 <p align="center">
 Launch the utility: <br/>
