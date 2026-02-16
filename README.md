@@ -21,8 +21,14 @@ This project demonstrates a successful Man-in-the-Middle (MitM) analysis within 
 
 <h2>Project Report:</h2>
 
-<p align="center">
-Launch the utility: <br/>
+<p align="left">
+<h2>Step 1: IP Forwarding</h2>
+ 
+- <b>Command: cat /proc/sys/net/ipv4/ip_forward</b>
+- <b>Purpose: Enables the transit of network packets between different interfaces. The VM is transformed from a standard host into a functional network router/gateway which directs traffic from the internal victim network to the external internet.</b>
+
+ (cat proc ss)
+ 
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
