@@ -1,7 +1,7 @@
 <h1>Traffic Analysis Using Wireshark</h1>
 
 <h2>Objective</h2>
-The objective of this project was to conduct a deep-packet analysis of unencrypted network traffic to demonstrate the vulnerability of plaintext protocols. By capturing and reconstructing sensitive login credentials transmitted using HTTP, this lab serves as a proof-of-concept for the risks of data interception and highlights the need for end-to-end encryption using HTTPS.
+The objective of this project was to conduct packet analysis of unencrypted network traffic to demonstrate the vulnerability of plaintext protocols. By capturing and reconstructing sensitive login credentials transmitted using HTTP, this lab serves as a proof-of-concept for the risks of data interception and highlights the need for end-to-end encryption using HTTPS.
 <br />
 
 <h2>Project Summary</h2>
@@ -64,7 +64,7 @@ This project demonstrates a successful Man-in-the-Middle (MitM) analysis within 
 <p align="center">
 <img width="624" height="288" alt="ws 2" src="https://github.com/user-attachments/assets/4f51ddbd-8a86-4746-8718-65050d1b1ab0" />
  
-- <b>Verification Analysis: The v (verbose) flag in the output shows the packet counters for the POSTROUTING chain.</b>
+- <b>Verification Analysis: The output shows the packet counters for the POSTROUTING chain.</b>
 - <b>As seen in the screenshot, the counter shows 524 packets (69,261 bytes) hitting the MASQUERADE rule.</b>
 - <b>These active counters prove that the NAT table is successfully translating the victim's private traffic into the gateway's public IP address.</b>
 
@@ -77,8 +77,8 @@ This project demonstrates a successful Man-in-the-Middle (MitM) analysis within 
 <h2>Step 6: Wireshark Analysis</h2>
  
 - <b>Purpose: Conduct deep packet inspection and uncover the sensitive credentials from the victim.</b>
-- <b>*The POST Request will contain the user credentials as these are designed to submit data.
-- <b>*Notice the HTTP protocol
+- <b>*The POST Request will contain the user credentials as these are designed to submit data.</b>
+- <b>*Notice the HTTP protocol</b>
 <p align="center">
 <img width="624" height="401" alt="ws analysis" src="https://github.com/user-attachments/assets/49cffd0d-e96b-4c05-bc28-f7005829ae14" />
  
@@ -90,21 +90,27 @@ This project demonstrates a successful Man-in-the-Middle (MitM) analysis within 
 <h2>Step 7: HTTP vs HTTPS Comparison</h2>
  
 - <b>To demonstrate how Transport Layer Security (TLS) ensures data confidentiality and protects against credential harvesting, even when the network path is compromised by a Man-in-the-Middle.</b>
-- <b>The user will now enter their login through a website where the traffic is encrypted.
+- <b>The user will now enter their login through a website where the traffic is encrypted.</b>
 <p align="center">
 <img width="356" height="289" alt="ws tls" src="https://github.com/user-attachments/assets/4bcdb506-8e28-4791-a91c-7b0a54f1c390" />
  
-- <b>The user data is will be transformed into unreadable ciphertext.
-- <b>*Notice the TLS protocol
+- <b>The user data is will be transformed into unreadable ciphertext.</b>
+- <b>*Notice the TLS protocol</b>
 <p align="center">
 <img width="623" height="480" alt="ws tls1" src="https://github.com/user-attachments/assets/72aef29b-3d70-4bd4-9dca-01f961590ef4" />
 
 - <b>As you can see, the sensitive credentials are unreadable even though we captured the packet.</b>
 - <b>The attacker can see that a connection exists, but the application data is encapsulated within a TLS v1.3 tunnel.</b>
 
+<h2>Final Summary</h2>
+The completion of this lab highlights the critical importance of encryption in modern networking. By establishing a MitM position, I demonstrated that any data passing through a compromised gateway is exposed when using plaintext protocols like HTTP.
+<br />
 
+<h2>Key Takeaways:</h2>
 
-
+- <b>Dangers of HTTP:</b> This plaintext protocol provides zero protection for users, allowing sensitive credentials to be captured and reconstructed.
+- <b>Effectiveness of HTTPS:</b> Despite successful traffic interception, the data remained unreadable due to TLS encryption. This proves that data confidentiality can be maintained even when the network connection is compromised.
+- <b>Defense-in-Depth:</b> Security is a multi-layered responsibility. While enforcing HTTPS is vital, hardening the network infrastructure is equally important to prevent gateway redirection that makes MitM attacks possible.
  
 <!--
  ```diff
